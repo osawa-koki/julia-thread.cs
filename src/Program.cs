@@ -94,6 +94,9 @@ internal static class Program
       // スレッドごとの処理範囲
       int range = height / threadCount;
 
+      // ジュリア集合のパラメータ
+      Complex c = new(cx, cy);
+
       // スレッドごとに処理を開始する
       Thread[] threads = new Thread[threadCount];
       for (int i = 0; i < threadCount; i++)
@@ -111,10 +114,10 @@ internal static class Program
               Complex z = new(x, y);
               Rgba32 color = (new Func<Rgba32>(() =>
               {
-                Complex v = new(0, 0);
+                Complex v = z;
                 for (int n = 0; n < iteration; n++)
                 {
-                  v = v * v + z;
+                  v = v * v + c;
                   if (v.Magnitude > 2)
                   {
                     var a = (byte)(255 - (double)threshold * n);
@@ -137,6 +140,7 @@ internal static class Program
       }
 
       image.Save(output_path);
+
 
       return 0;
     } catch (Exception ex)
