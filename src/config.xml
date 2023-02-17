@@ -4,13 +4,13 @@
 
   <width>1024</width>
   <height>1024</height>
-  <x_min>-2.2</x_min>
-  <x_max>1.8</x_max>
+  <x_min>-2.0</x_min>
+  <x_max>2.0</x_max>
   <y_min>-2.0</y_min>
   <y_max>2.0</y_max>
   <cx>-0.8</cx>
   <cy>0.156</cy>
-  <iteration>100</iteration>
+  <iteration>150</iteration>
   <threshold>10</threshold>
   <output_path>julia.png</output_path>
 
